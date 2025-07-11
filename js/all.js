@@ -109,6 +109,11 @@ const homepageList = [
     img: "skin33",
     name: "템플릿22",
     },
+    {
+    url: "https://inview0310.cafe24.com/skin-skin18/",
+    img: "skin18",
+    name: "템플릿23",
+    },
 ];
 
 function setList(pfFrame) {
