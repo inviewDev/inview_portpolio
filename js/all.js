@@ -146,12 +146,12 @@ const homepageList = [
   },
   {
     url: "https://inview0310.cafe24.com/skin-skin26",
-    img: "skin27",
+    img: "skin26",
     name: "템플릿30",
   },
   {
     url: "https://inview0310.cafe24.com/skin-skin27",
-    img: "skin26",
+    img: "skin27",
     name: "템플릿31",
   },
 ];
