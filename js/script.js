@@ -3,17 +3,6 @@ let controller = new ScrollMagic.Controller();
 // GSAP
 let galley = gsap.timeline();
 let xPos = 0;
-
-$(".template_move").on("click", function (e) {
-  e.preventDefault();
-  $("html, body").animate(
-    {
-      scrollTop: $(".projects_box").offset().top,
-    },
-    1000
-  );
-});
-
 galley
   .set(".ring_box", { rotationY: 280, cursor: "grab" }) //set initial rotationY so the parallax jump happens off screen
   .set(".cont_box", {
@@ -389,5 +378,31 @@ $(function () {
 
     var offsetTop = $(".projects_box").offset().top;
     $("html, body").animate({ scrollTop: offsetTop }, 600);
+  });
+
+  $(".template_move").on("click", function (e) {
+    e.preventDefault();
+    $("html, body").animate(
+      {
+        scrollTop: $(".projects_box").offset().top,
+      },
+      1000
+    );
+  });
+  $(window).on("scroll", function () {
+    $(".template_move").each(function () {
+      var $this = $(this);
+      var elementOffset = $(".projects_box").offset().top;
+      var scrollTop = $(window).scrollTop();
+      var windowHeight = $(window).height();
+      if (
+        scrollTop + windowHeight > elementOffset &&
+        scrollTop < elementOffset + $(".projects_box").outerHeight()
+      ) {
+        $this.addClass("on_project");
+      } else {
+        $this.removeClass("on_project");
+      }
+    });
   });
 });
