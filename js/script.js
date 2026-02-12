@@ -4,6 +4,22 @@ let controller = new ScrollMagic.Controller();
 let galley = gsap.timeline();
 let xPos = 0;
 
+function initScrollButtons() {
+  const scrollBtns = document.querySelectorAll('.move_template');
+  scrollBtns.forEach(btn => {
+    btn.addEventListener('click', (e) => {
+      e.preventDefault();
+      const targetSection = document.querySelector('.projects_box');
+      if (targetSection) {
+        targetSection.scrollIntoView({
+          behavior: 'smooth',
+          block: 'start'
+        });
+      }
+    });
+  });
+}
+
 galley.set('.ring_box', { rotationY: 280, cursor: 'grab' }) //set initial rotationY so the parallax jump happens off screen
   .set('.cont_box', { // apply transform rotations to each image
     rotateY: (i) => i * -24,
